@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+<div class="group">
+  <div class="group-title">
+    <i class="fa fa-cube"></i>&nbsp;{{page.title}}
+  </div>
+  <div class="group-script">
+    {{page.content}}
+  </div>
+  <div class="buffer"></div>
+  <div class="fromhere">All Posts Inside the &nbsp;<i class="fa fa-cube"></i></div>
+  <div class="buffers"></div>
+  <div class="list">
+    {% for post in site.posts %}
+    {% if post.category == page.title %}
+    <div class="card">
+      <a href="{{post.url | prepend: site.baseurl}}" class="left">
+        <div class = "box">
+          <div class="title">
+            {{post.title}}
+          </div>
+          <div class="script">
+            {{ post.excerpt | markdownify | truncatewords: 40 }} 
+          </div>
+        </div>
+      </a>
+      <div class="right">
+        {% if post.repimgsrc %}
+          <img src="{{post.repimgsrc}}" class="card-img">
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>

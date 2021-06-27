@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<div class= "posts">
+
+  <div class = "list">
+    {% for post in paginator.posts %}
+    <div class="card">
+      <a href="{{post.url | prepend: site.baseurl}}" class="left">
+        <div class = "box">
+          <div class="title">
+            {{post.title}}
+          </div>
+          <div class="script">
+            {{ post.excerpt | markdownify | truncatewords: 40 }} 
+          </div>
+        </div>
+      </a>
+      <div class="right">
+        {% if post.repimgsrc %}
+          <img src="{{post.repimgsrc}}" class="card-img">
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="page-nb">
+    <div class="new">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl}}">
+          <span class="txt">
+            <i class="fas fa-angle-left"></i>&nbsp; Newer
+          </span>
+        </a>
+      {% endif %}
+    </div>
+    <div class="old">
+      {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | prepend: site.baseurl}}">
+        <span class="txt">
+          Older&nbsp;<i class="fas fa-angle-right"></i>
+        </span>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,51 @@
+// Colors
+$default-color: #000;
+$default-shadow: #7e7e7e;
+$default-tint: #322d31;
+$lessdarkgreyblue: #283347;
+$darkgreyblue1: #1c3545;
+$darkgreyblue2: #13232e;
+$lessdarkgrey: #545454;
+$darkgrey: #3a3b3c;
+$darkergrey: #18191a;
+
+$grey1: #979797;
+$grey2: #e5e5e5;
+$grey3: #f9f9f9;
+$white: #fff;
+$blue: #4169e1;
+$blue2: #1338be;
+$darkblue: #00008b;
+$ocean: #0492c2;
+$ocean2: #7d8a89;
+$shadow-color: rgba(0, 0, 0, .1);
+$shadow-color2: rgba(0, 0, 0, .2);
+$shadow-color3: rgba(0, 0, 0, .3);
+$snowblue: #93b6dd;
+$selection-color: orange;
+
+// Fonts
+$sans-serif: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+$monospaced: 'Menlo', Monaco, monospace;
+$seo: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$gills: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+$courier: 'Courier New', Courier;
+$roman: 'Times New Roman', Times, serif;
+$sans: 'Helvetica', Arial, sans-serif;
+$KRsans: 'Noto Sans KR', Helvetica, Arial, sans-serif;
+$KRserif: 'Noto Serif KR', Helvetica, Arial, sans-serif;
+
+//syntax
+$bluesimple: #122b3b;
+
+@mixin box-sizing($type: border-box) {
+  -webkit-box-sizing: $type;
+     -moz-box-sizing: $type;
+          box-sizing: $type;
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+     -moz-transition: $args;
+          transition: $args;
+}

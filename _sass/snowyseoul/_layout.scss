@@ -1,0 +1,436 @@
+/// base ///
+
+* {
+  @include box-sizing;
+}
+
+html, body {
+  color: $default-color;
+  margin: 0;
+  padding: 0;}
+
+html {
+overflow-y: scroll;
+  @media (min-width: 600px) {
+    font-size: 16px;}
+}
+
+body {
+-webkit-text-size-adjust: 100%;
+font-family: $sans;
+line-height: 180%;
+font-size: 1.1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+color: $default-color;
+line-height: normal;
+}
+
+blockquote {
+  border-left: .25rem solid $grey2;
+  color: $grey1;
+  margin: .8rem 0;
+  padding: .5rem 1rem;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 600px) {
+    padding: 0 5rem 0 1.25rem;
+  }
+}
+
+img {
+  -webkit-user-select: none !important;
+  -moz-user-select: -moz-none !important;
+  user-select: none !important;
+  display: block;
+  margin: 0 0 1rem;
+  max-width: 100%;
+}
+
+td {
+  vertical-align: top;
+}
+
+::selection {
+  background: $selection-color;
+  color: $white;
+}
+::-moz-selection {
+  background: $selection-color;
+  color: $white;;
+}
+
+
+/// common ///@extend
+header, main, footer {
+  display: block;
+  margin: 1rem auto;
+  max-width: 900px;
+  width: 90%;
+}
+
+header, footer {
+  ::selection{
+    background-color: $blue;
+  }
+}
+
+a{
+  list-style-type: none;
+  text-decoration: none;
+  color: $default-color;
+}
+
+.buffer{
+  height: 2rem;
+}
+.buffers{
+  height: 1rem;
+}
+
+/// archive ///
+
+.archive{
+  margin: 2rem 0;
+  .list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+  }
+  .card{
+    flex-grow: 1;
+    margin: 2rem 1.5rem;
+    box-shadow: 1px 1px 2px 2px $shadow-color2;
+    min-width: 15rem;
+    max-width: 18rem;
+    min-height: 12rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-content: flex-start;
+    position: relative;
+    &-null{
+      height: 100%;
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: center;
+      div{align-self: center;}
+    }
+    .card-img{
+      @include transition(all .05s ease-out);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+    }
+    .line{
+      position: absolute;
+      margin: 1.2rem 1rem;
+      height: 10rem;
+      overflow-y: hidden;
+      word-break: break-all;
+    }
+    .title-line{
+      @include transition(all .1s ease-out);
+      font-family: $KRsans;
+      font-size: 1.7rem;
+      font-weight: 900;
+      color: $darkergrey;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: baseline;
+    }
+    .script{
+      //@include transition(all .1s ease-out);
+      margin: 0.4rem 0;
+      font-family: $KRsans;
+      font-size: 1rem;
+      font-weight: 700;
+      color: $grey2;
+      line-height: 160%;
+    }
+    &:hover, &:focus{
+      .card-img{opacity: 0.5;}
+      .title{opacity: 0.9;}
+      .script{color: $darkgrey;}
+    }
+  }
+}
+
+
+/// post /// 
+
+.post{
+  margin: 2rem 0;
+  .title{
+    font-family: $KRsans;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: $darkergrey;
+  }
+
+  .date{
+    margin: 0.5rem 0.2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: $darkgrey;
+  }
+
+  .post-inside{
+    margin: 1.5rem 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-style: oblique;
+    color: $darkergrey;
+
+    &:hover, &:focus{
+      .post-inside-cat{
+        opacity: .6;
+      }
+    }
+  }
+
+  .post-inside-cat{
+    @include transition(all .1s ease-out);
+    color: $darkergrey;
+  }
+}
+
+
+/// content ///
+
+.content{
+  margin: 0; padding: 0;
+ 
+  p {
+    margin: 0 0 1rem;
+    text-align: left;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  img {
+    margin: 0 auto 0.5rem;
+  }
+
+  img + em {
+    color: $default-tint;
+    display: block;
+    font-family: $sans;
+    font-size: 0.9rem;
+    font-style: normal;
+    text-align: center;
+  }
+
+  // CSS for making emoji inline //
+  img.emoji {
+    display: inline-block;
+    left: 0;
+    transform: none;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: text-top;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+/// post - JP cells///
+
+.jp-Cell-inputWrapper{
+  pre{
+    padding: 1.2rem 1.2rem 0.8rem;
+    background-color: $bluesimple;
+    overflow-x: auto;
+    line-height: 80%;
+  }
+}
+
+.jp-Cell-outputWrapper{
+  margin: -1.5rem 0 2rem;
+  padding: 1.2rem 1.2rem 0.8rem;
+  overflow-x: auto;
+  max-height: 450px;
+  overflow-y: auto;
+  line-height: 80%;
+  color: $darkgreyblue2;
+}
+
+/// posts, group ///
+
+.group{
+  font-family: $KRsans;
+  &-title{
+    margin: 0.5rem 0;
+    color: $darkgreyblue2;
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+  &-script{
+    margin: 2.5rem 0;
+    color: $lessdarkgreyblue;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 160%;
+  }
+  .fromhere{
+    margin: 1rem 0;
+    font-family: $sans;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $darkergrey;
+    .fa-cube{
+      transform: rotate(-5deg);
+      color: $darkergrey;
+    }
+  }
+}
+
+
+.posts, .group{
+  margin: 2rem 0;
+  .list{
+    .card{
+      padding: 1.5rem 0;
+      border-bottom: 0.1rem solid $grey2;
+      height: 12rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    .card-img{
+      width: 12rem;
+      height: 9rem;
+      object-fit: cover;
+    }
+    .left{
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-content: flex-start;
+    }
+
+    .box{
+      margin: 0.5rem;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 0;
+      .title{
+        @include transition(all .1s ease-out);
+        font-family: $KRsans;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $darkergrey;
+      }
+      .script{
+        //@include transition(all .1s ease-out);
+        font-family: $KRsans;
+        font-size: 1rem;
+        font-weight: 500;
+        color: $default-shadow;
+        line-height: 160%;
+      }
+      &:hover, &:focus{
+        .title{opacity: 0.9;}
+        .script{color: $lessdarkgrey;}
+      }
+    }
+  }
+
+  .page-nb{
+    margin: 1rem 2rem 1rem 0;
+    display: flex;
+    justify-content: center;
+
+    .new, .old{
+      @include transition(all .1s ease-out);
+      margin: 0rem .8rem;
+      font-size: 1.3rem;
+      font-weight: 500;
+      .txt{
+        color: $darkgreyblue1;
+      }
+      &:hover, &:focus{
+        opacity: 0.7;
+        padding-left: 0.5rem; padding-right: 0.5rem;
+      }
+    }
+  }
+}
+
+
+/// about ///
+.about{
+  margin: 2rem;
+  .fa-github{
+    font-size: 1.4rem;
+  }
+  img{
+    margin: 2rem 0;
+    width: 14rem;
+  }
+}
+
+
+/// header ///
+.up{
+  margin: 1rem 0 3.5rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: baseline;
+
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  .pagename{
+    margin-right: 0.8rem;
+    &-git{
+      margin-left: 0.2rem;
+      font-size: 1.7rem;
+    }
+
+    section{
+      padding: 1rem 0;
+      color: $darkgreyblue1;
+      &:hover, &:focus{
+        @include transition(all .1s ease-out);
+        opacity: 0.6;
+      }
+    }
+  }
+
+  .fab{
+    padding: 1rem 0;
+    color: $darkgreyblue1;
+    font-size: 1.8rem;
+    &:hover, &focus{
+      @include transition(all .1s ease-out);
+      opacity: 0.6;
+      color: $darkblue;
+    }
+  }
+}
+
+/// footer ///
+.bottom{
+  margin: 3rem 0 2.5rem;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+/// ///

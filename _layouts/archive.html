@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div class="archive">
+  <div class="list">
+    {% for page in site.pages %}
+    {% if page.group %}
+    {% if page.title %}
+    <a href="{{page.url | prepend: site.baseurl}}" class="card">
+      {% if page.repimgsrc %}
+      <img src="{{page.repimgsrc}}" class="card-img">
+      {% endif %}
+      <div class="line">
+        <div class="title-line">
+          <i class="fa fa-cube"></i>&nbsp;
+          <div class="title"> {{page.title}} </div>
+        </div>
+        <div class="script"> {{ page.content | markdownify | truncatewords: 20}} </div>
+      </div>
+    </a>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    <div class="card"><div class="card-null"><div><p><em>in process</em></p></div></div></div>
+  </div>
+</div>
+
+

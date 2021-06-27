@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+<div class="post">
+  <span class="title">
+    {{ page.title }}
+  </span>
+
+  <div class="date">
+    {% if page.date %}
+    <time datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time>
+    {% endif %}
+  </div>
+
+  <div class="post-inside">
+    {% if page.category %}
+    {% for cat in page.category %}
+      {% for pager in site.pages %}
+      {% if pager.group %}
+      {% if pager.title == cat %}
+      <a href="{{pager.url | prepend: site.baseurl}}" target="_blank">
+        <span class="post-inside-txt"> <i class="fa fa-cube"></i>&nbsp; Inside:&nbsp;</span>
+        <span class="post-inside-cat">&nbsp;{{cat}}&nbsp;</span>
+      </a>
+      {% endif %}
+      {% endif %}
+      {% endfor %}
+    {% endfor %}
+    {% endif %}
+  </div>
+
+  <div class="buffer">
+  </div>
+
+  <div class="content">
+    {{ content }}
+  </div>
+
+</div>
+
+
