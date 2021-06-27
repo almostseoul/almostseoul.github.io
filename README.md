@@ -1,4 +1,4 @@
-# ACHEUL Blog
+# Acheul Blog
 <br/>
 This is a blog for my personal projects around the Python, ML and Data Science.
 <br/><br/>
